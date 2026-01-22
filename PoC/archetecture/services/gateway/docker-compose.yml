@@ -1,0 +1,7 @@
+
+
+include:
+  - path:
+      - base-docker-compose.yml
+    env_file:
+      - arguments.ini

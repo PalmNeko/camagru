@@ -1,0 +1,19 @@
+
+services:
+  gateway:
+    extends:
+      file: ../../components/nginx/docker-compose.yml
+      service: nginx
+    restart: on-failure
+    container_name: gateway
+    hostname: gateway
+    pull_policy: never
+    image: camagru/gateway:nginx
+    ports:
+      - ${GATEWAY_HOST_PORT:-8000}:80
+
+configs:
+  gateway_nginx_conf:
+    file: configs/nginx.conf
+  gateway_nginx_templates:
+    file: configs/templates
