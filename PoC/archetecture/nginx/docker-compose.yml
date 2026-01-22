@@ -9,13 +9,13 @@ services:
       NGINX_ENVSUBST_TEMPLATE_SUFFIX: ${NGINX_ENVSUBST_TEMPLATE_SUFFIX:-.template}
       NGINX_ENVSUBST_OUTPUT_DIR: ${NGINX_ENVSUBST_OUTPUT_DIR:-/etc/nginx/conf.d}
     configs:
-      - source: nginx_config
+      - source: ${NGINX_CONF}
         target: /etc/nginx/nginx.conf
-      - source: templates_configs
+      - source: ${NGINX_TEMPLATES}
         target: ${NGINX_ENVSUBST_TEMPLATE_DIR:-/etc/nginx/templates}
 
 configs: # please override here files
-  nginx_config:
+  nginx_conf:
     file: nginx.conf
-  templates_configs:
+  nginx_templates:
     file: templates/
