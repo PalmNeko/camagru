@@ -11,6 +11,8 @@ services:
     image: camagru/gateway:nginx
     ports:
       - ${GATEWAY_HOST_PORT:-8000}:80
+    environment:
+      PHP_FPM_LOG_LEVEL: debug
 
 configs:
   gateway_nginx_conf:

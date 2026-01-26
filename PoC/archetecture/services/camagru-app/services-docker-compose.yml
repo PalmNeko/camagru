@@ -1,0 +1,6 @@
+
+
+services:
+  camagru-app:
+    networks:
+      - frontend-network
