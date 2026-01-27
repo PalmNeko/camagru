@@ -1,0 +1,20 @@
+
+name: camagru
+
+include:
+  - path:
+      - services/gateway/docker-compose.yml
+      - services/gateway/services-docker-compose.yml
+      - services-docker-compose.yml
+  - path:
+      - services/camagru-app/docker-compose.yml
+      - services/camagru-app/services-docker-compose.yml
+      - services-docker-compose.yml
+    env_file:
+      - .env
+  - path:
+      - services/db/docker-compose.yml
+      - services/db/services-docker-compose.yml
+      - services-docker-compose.yml
+    env_file:
+      - .env

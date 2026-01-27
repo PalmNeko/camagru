@@ -4,3 +4,4 @@ services:
   camagru-app:
     networks:
       - frontend-network
+      - backend-network

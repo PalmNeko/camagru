@@ -1,0 +1,13 @@
+
+networks:
+  external-network: &network
+    driver: bridge
+    attachable: false
+    internal: false
+  frontend-network: &internal
+    <<: *network
+    internal: true
+  backend-network: *internal
+
+volumes:
+  uploads_volume:

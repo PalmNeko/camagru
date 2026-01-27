@@ -1,0 +1,10 @@
+
+
+services:
+  db:
+    networks:
+      - backend-network
+
+  adminer:
+    networks:
+      - backend-network
