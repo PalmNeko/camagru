@@ -31,6 +31,12 @@ services:
       - source: msmtprc
         target: /var/www/.msmtprc
 
+  mailpit:
+    image: axllent/mailpit
+    hostname: mailpit
+    ports:
+      - 8025:8025
+
 configs:
   php_fpm_conf:
     file: configs/php-fpm.conf
@@ -43,4 +49,4 @@ secrets:
   gmail_password:
     file: secrets/gmail_password
   msmtprc:
-    file: secrets/.msmtprc
+    file: secrets/.msmtprc.dev
