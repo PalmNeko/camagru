@@ -6,7 +6,7 @@ networks:
     internal: false
   frontend-network: &internal
     <<: *network
-    internal: true
+    internal: false
   backend-network: *internal
 
 volumes:

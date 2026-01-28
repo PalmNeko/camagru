@@ -8,7 +8,7 @@ services:
     pull_policy: never
     image: camagru/camagru-app:latest
     build:
-      context: ${CAMAGRU_APP_BUILD_CONTEXT:?error}
+      context: .
       dockerfile: Dockerfile
       target: ${CAMAGRU_APP_BUILD_TARGET:?error}
     volumes:
@@ -25,6 +25,11 @@ services:
         target: /usr/local/etc/php-fpm.d/
       - source: php_ini
         target: /usr/local/etc/php/php.ini
+    secrets:
+      - source: gmail_password
+        target: /run/secrets/gmail_password
+      - source: msmtprc
+        target: /var/www/.msmtprc
 
 configs:
   php_fpm_conf:
@@ -33,3 +38,9 @@ configs:
     file: configs/php-fpm.d/
   php_ini:
     file: configs/php-ini/php.ini-development
+
+secrets:
+  gmail_password:
+    file: secrets/gmail_password
+  msmtprc:
+    file: secrets/.msmtprc
