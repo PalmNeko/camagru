@@ -1,3 +1,23 @@
+<?php
+if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
+    $file = '/var/www/uploads' . $_SERVER["REQUEST_URI"];
+    if (!is_file($file)) {
+        http_response_code(404);
+        exit;
+    }
+
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime  = finfo_file($finfo, $file);
+    finfo_close($finfo);
+
+    header('Content-Type: ' . $mime);
+    header('Content-Length: ' . filesize($file));
+    readfile($file);
+    exit;
+} else {
+    echo "<p>Welcome to PHP</p>";
+}
+?>
 <h1>mail</h1>
 <form enctype="multipart/form-data" action="mail.php" method="POST">
     メールアドレス：<input name="email" type="email">
@@ -16,6 +36,13 @@
 </form>
 <?php
 echo "Hello world!!!";
+$image_paths = glob("/var/www/uploads/*.{png,gif,jpg,jpeg}", GLOB_BRACE);
+foreach($image_paths as $image_path) {
+    $encoded_url = urlencode(basename($image_path));
+    echo "<img src=\"$encoded_url\" />";
+}
+
+print_r($image_paths);
 // echo $SCRIPT_FILENAME;
 phpinfo();
 ?>
