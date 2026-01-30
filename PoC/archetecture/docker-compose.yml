@@ -18,3 +18,7 @@ include:
       - services-docker-compose.yml
     env_file:
       - .env
+  - path:
+      - services/rustfs/docker-compose.yml
+      - services/rustfs/services-docker-compose.yml
+      - services-docker-compose.yml

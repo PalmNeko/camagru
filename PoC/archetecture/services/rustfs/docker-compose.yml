@@ -1,0 +1,8 @@
+
+services:
+  rustfs:
+    image: rustfs/rustfs
+    hostname: rustfs
+    ports:
+      - 9000:9000
+      - 9001:9001

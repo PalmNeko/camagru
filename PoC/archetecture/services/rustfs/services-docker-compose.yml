@@ -1,0 +1,6 @@
+
+
+services:
+  rustfs:
+    networks:
+      - backend-network
