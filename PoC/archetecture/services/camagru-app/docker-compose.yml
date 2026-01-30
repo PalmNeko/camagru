@@ -13,7 +13,6 @@ services:
       target: ${CAMAGRU_APP_BUILD_TARGET:?error}
     volumes:
       - ${CAMAGRU_APP_SOURCE}:/var/www/html
-      - ${CAMAGRU_APP_UPLOADS}:/var/www/uploads
       - uploads_volume:/var/www/uploads:rw
     post_start:
       - command: ["chown", "www-data", "-R", "/var/www/uploads"]
