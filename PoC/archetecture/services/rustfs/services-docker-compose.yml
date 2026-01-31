@@ -3,4 +3,4 @@
 services:
   rustfs:
     networks:
-      - backend-network
+      - frontend-network

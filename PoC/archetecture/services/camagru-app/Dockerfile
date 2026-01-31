@@ -6,7 +6,10 @@ RUN apt-get update -y && apt-get upgrade -y \
     && apt-get install -y \
         msmtp \
         msmtp-mta \
-    && rm -rf /var/lib/apt/lists/*
+        curl \
+        unzip \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -sS https://getcomposer.org/installer | php
 
 FROM default AS debug
 

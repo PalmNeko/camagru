@@ -26,12 +26,16 @@ server {
 
     # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
     #
-    location ~ \.(gif|jpg|png|php)$ {
+    location ~ \.php$ {
        root           /var/www/html;
        include        fastcgi_params;
        fastcgi_pass   camagru-app-machine:9000;
        fastcgi_index  index.php;
-       fastcgi_param  SCRIPT_FILENAME  $document_root/index.php;
+       fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    }
+
+    location ~ \.(gif|jpg|png)$ {
+        proxy_pass http://rustfs:9000;
     }
 
     # deny access to .htaccess files, if Apache's document root

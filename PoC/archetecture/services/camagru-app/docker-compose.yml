@@ -7,6 +7,15 @@ services:
     hostname: camagru-app-machine
     pull_policy: never
     image: camagru/camagru-app:latest
+    environment:
+      S3_ACCESS_KEY: ${RUSTFS_ACCESS_KEY:?error}
+      S3_SECRET_KEY: ${RUSTFS_SECRET_KEY:?error}
+      S3_CONSOLE_ENABLE: ${RUSTFS_CONSOLE_ENABLE:?error}
+      S3_SERVER_DOMAINS: ${RUSTFS_SERVER_DOMAINS:?error}
+      S3_PORT: 9000
+      S3_BUCKET_NAME: ${CAMAGRU_APP_BUCKET_NAME:?error}
+      S3_PRESIGNED_EXPOSE_DOMAIN: ${GATEWAY_DOMAIN:?error}
+      S3_PRESIGNED_EXPOSE_PORT: ${GATEWAY_PORT:?error}
     build:
       context: .
       dockerfile: Dockerfile

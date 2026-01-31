@@ -3,6 +3,11 @@ services:
   rustfs:
     image: rustfs/rustfs
     hostname: rustfs
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY:-error}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY:-error}
+      RUSTFS_CONSOLE_ENABLE: ${RUSTFS_CONSOLE_ENABLE:-error}
+      RUSTFS_SERVER_DOMAINS: ${RUSTFS_SERVER_DOMAINS:-error}
     ports:
       - 9000:9000
       - 9001:9001
