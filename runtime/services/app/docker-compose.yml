@@ -1,0 +1,21 @@
+
+
+services:
+  app:
+    restart: on-failure
+    container_name: app
+    hostname: app
+    pull_policy: never
+    image: camagru/app:latest
+    environment:
+      S3_ACCESS_KEY: ${MEDIA_STORAGE_ACCESS_KEY:-rustfsadmin}
+      S3_SECRET_KEY: ${MEDIA_STORAGE_SECRET_KEY:-rustfsadmin}
+      S3_SERVER_DOMAINS: ${MEDIA_STORAGE_SERVER_DOMAINS:-media_storage}
+      S3_PORT: ${MEDIA_STORAGE_SERVER_PORT:-9000}
+    configs:
+      - source: php_ini_conf_d
+        target: /usr/local/etc/conf.d/
+
+configs:
+  php_ini_conf_d:
+    file: configs/php-ini/conf.d/

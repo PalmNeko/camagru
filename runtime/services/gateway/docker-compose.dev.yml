@@ -1,0 +1,16 @@
+services:
+  gateway:
+    ports:
+      - 80:80
+    develop:
+      watch:
+        - path: .
+          include:
+            - "*.yml"
+            - "Dockerfile"
+          action: rebuild
+        - path: .
+          include:
+            - "*.conf"
+            - "*.conf.template"
+          action: restart

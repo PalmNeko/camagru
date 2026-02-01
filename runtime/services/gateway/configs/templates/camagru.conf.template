@@ -1,0 +1,30 @@
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        try_files $uri /index.php?$args;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # camagru background main application
+    location ~ \.php$ {
+       root           /var/www/html/public;
+       include        fastcgi_params;
+       fastcgi_pass   ${APP_HOSTNAME}:9000;
+       fastcgi_index  index.php;
+       fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    }
+
+    # file server like S3(Simple Storage Service)
+    location ~ \.(gif|jpg|png)$ {
+        proxy_pass http://${MEDIA_STORAGE_HOSTNAME}:9000;
+    }
+}

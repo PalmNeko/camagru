@@ -1,0 +1,14 @@
+
+include:
+  - path: # app
+      - services/app/docker-compose.yml
+      - services/app/docker-compose.prod.yml
+  - path: # gateway
+      - services/gateway/docker-compose.yml
+      - services/gateway/docker-compose.prod.yml
+  - path: # mariadb
+      - services/mariadb/docker-compose.yml
+      - services/mariadb/docker-compose.prod.yml
+  - path: # media-storage
+      - services/media-storage/docker-compose.yml
+      - services/media-storage/docker-compose.prod.yml

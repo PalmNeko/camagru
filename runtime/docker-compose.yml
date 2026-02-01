@@ -1,0 +1,6 @@
+
+name: camagru
+
+include:
+  - path:
+      - docker-compose.${RUNTIME_TARGET:-dev}.yml

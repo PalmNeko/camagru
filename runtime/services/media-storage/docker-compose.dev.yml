@@ -1,0 +1,13 @@
+
+
+services:
+  media-storage:
+    ports:
+      - 9001:9001
+    volumes:
+      - media_storage_data:/data
+      - media_storage_logs:/logs
+
+volumes:
+  media_storage_data:
+  media_storage_logs:

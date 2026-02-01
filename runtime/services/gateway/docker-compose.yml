@@ -1,0 +1,21 @@
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${GATEWAY_CONTAINER_NAME:-gateway}
+    hostname: ${GATEWAY_CONTAINER_NAME:-gateway}
+    environment:
+      MEDIA_STORAGE_HOSTNAME: ${MEDIA_STORAGE_HOSTNAME:-media_storage}
+      APP_HOSTNAME: ${APP_HOSTNAME:-app}
+    configs:
+      - source: gateway_conf
+        target: /etc/nginx/nginx.conf
+      - source: gateway_templates
+        target: /etc/nginx/templates
+
+configs:
+  gateway_conf:
+    file: configs/nginx.conf
+  gateway_templates:
+    file: configs/templates/

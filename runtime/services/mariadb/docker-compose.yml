@@ -1,0 +1,17 @@
+
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: ${MARIADB_CONTAINER_NAME:-mariadb}
+    hostname: ${MARIADB_HOSTNAME:-mariadb}
+    restart: always
+    environment:
+      MARIADB_DATABASE: ${MARIADB_DATABASE:-camagru}
+      MARIADB_USER: ${MARIADB_USER:-camagru}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3

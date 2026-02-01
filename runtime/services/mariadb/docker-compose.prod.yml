@@ -1,0 +1,5 @@
+
+services:
+  mariadb:
+    environment:
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD:?error}

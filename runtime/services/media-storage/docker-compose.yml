@@ -1,0 +1,13 @@
+
+services:
+  media-storage:
+    image: rustfs/rustfs
+    hostname: ${MEDIA_STORAGE_HOSTNAME:-media_storage}
+    container_name: ${MEDIA_STORAGE_CONTAINER_NAME:-media_storage}
+    environment:
+      RUSTFS_ACCESS_KEY: ${MEDIA_STORAGE_ACCESS_KEY:-rustfsadmin}
+      RUSTFS_SECRET_KEY: ${MEDIA_STORAGE_SECRET_KEY:-rustfsadmin}
+      RUSTFS_CONSOLE_ENABLE: ${MEDIA_STORAGE_CONSOLE_ENABLE:-true}
+      RUSTFS_SERVER_DOMAINS: ${MEDIA_STORAGE_SERVER_DOMAINS:-media-storage}
+    ports:
+      - 9000:9000

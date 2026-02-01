@@ -1,0 +1,21 @@
+
+include:
+  - path: # app
+      - services/app/docker-compose.yml
+      - services/app/docker-compose.dev.yml
+  - path: # gateway
+      - services/gateway/docker-compose.yml
+      - services/gateway/docker-compose.dev.yml
+  - path: # mariadb
+      - services/mariadb/docker-compose.yml
+      - services/mariadb/docker-compose.dev.yml
+  - path: # media-storage
+      - services/media-storage/docker-compose.yml
+      - services/media-storage/docker-compose.dev.yml
+  # development only container
+  - path: # adminer
+      - services-dev/adminer/docker-compose.yml
+      - services-dev/adminer/docker-compose.dev.yml
+  - path: # mailpit
+      - services-dev/mailpit/docker-compose.yml
+      - services-dev/mailpit/docker-compose.dev.yml

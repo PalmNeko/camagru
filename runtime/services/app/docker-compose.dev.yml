@@ -1,0 +1,17 @@
+
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - ./html:/var/www/html
+    configs:
+      - source: msmtprc
+        target: /var/www/.msmtprc
+
+configs:
+  msmtprc:
+    file: configs/msmtprc/.msmtprc.dev

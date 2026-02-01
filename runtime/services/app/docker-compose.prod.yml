@@ -1,0 +1,41 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    configs:
+      - source: msmtprc
+        target: /var/www/.msmtprc
+    secrets:
+      - source: msmtp_smtp_password
+        target: /run/secrets/smtp_password
+
+configs:
+  msmtprc:
+    content: |
+      # Template for a user configuration file ~/.msmtprc
+
+      # see 'msmtp' documentation. : https://marlam.de/msmtp/msmtp.html
+
+      defaults
+
+      # SMTP Server's port. default: 465
+      port 465
+      tls on
+      tls_starttls off
+
+      # account camagru
+      account camagru
+      host ${APP_SMTP_HOSTNAME:?error}
+      from ${APP_EMAIL_FROM:?error}
+      auth on
+      user ${APP_SMTP_USER:?error}
+      passwordeval "cat /run/secrets/smtp_password"
+
+      account default : camagru
+
+secrets:
+  msmtp_smtp_password:
+    file: ${APP_SMTP_PASSWORD_PATH:?error}
