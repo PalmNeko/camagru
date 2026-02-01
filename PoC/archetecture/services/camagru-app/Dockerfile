@@ -1,6 +1,5 @@
 FROM php:8.3-fpm AS default
 
-RUN docker-php-ext-install mysqli
 RUN apt-get update -y && apt-get upgrade -y \
     && echo 'msmtp msmtp/apparmor boolean true' | debconf-set-selections \
     && apt-get install -y \
@@ -8,6 +7,11 @@ RUN apt-get update -y && apt-get upgrade -y \
         msmtp-mta \
         curl \
         unzip \
+		libfreetype-dev \
+		libjpeg62-turbo-dev \
+		libpng-dev \
+	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
+	&& docker-php-ext-install -j$(nproc) gd mysqli \
     && rm -rf /var/lib/apt/lists/* \
     && curl -sS https://getcomposer.org/installer | php
 
