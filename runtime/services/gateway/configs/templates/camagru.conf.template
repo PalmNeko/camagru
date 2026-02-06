@@ -26,4 +26,12 @@ server {
     location ~ \.(gif|jpg|png)$ {
         proxy_pass http://${MEDIA_STORAGE_HOSTNAME}:9000;
     }
+
+    # ** FOR DEVELOPMENT **
+    location /status {
+
+        fastcgi_pass ${APP_HOSTNAME}:9000;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
 }

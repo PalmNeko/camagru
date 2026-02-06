@@ -11,7 +11,11 @@ services:
     configs:
       - source: msmtprc
         target: /var/www/.msmtprc
+      - source: php_fpm_d_camagru_conf
+        target: /usr/local/etc/php-fpm.d/za-camagru.conf
 
 configs:
   msmtprc:
     file: configs/msmtprc/.msmtprc.dev
+  php_fpm_d_camagru_conf:
+    file: configs/php-fpm.d/camagru-dev.conf
