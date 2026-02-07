@@ -1,1 +1,2 @@
-datadir/
+datadir/*
+!datadir/.gitkeep

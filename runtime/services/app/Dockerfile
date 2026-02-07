@@ -1,5 +1,5 @@
 # base
-FROM php:8.3-fpm AS base
+FROM php:8.5-fpm AS base
 RUN apt-get update -y && apt-get upgrade -y \
     && echo 'msmtp msmtp/apparmor boolean true' | debconf-set-selections \
     && apt-get install -y \

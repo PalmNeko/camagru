@@ -1,0 +1,10 @@
+services:
+  app-dev:
+    container_name: app-dev
+    hostname: app-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: app-dev:fpm
+    init: true
+    tty: true

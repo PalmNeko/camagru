@@ -5,4 +5,4 @@ services:
       MARIADB_PASSWORD: ${MARIADB_PASSWORD:-password}
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-password}
     volumes:
-      - ${MARIADB_DATADIR_DEV:-./datadir}:/var/lib/mysql
+      - ${SERVICES_MARIADB_LOCAL_DIR:-.}/datadir:/var/lib/mysql

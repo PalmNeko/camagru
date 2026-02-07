@@ -16,6 +16,6 @@ services:
 
 configs:
   gateway_conf:
-    file: configs/nginx.conf
+    file: ${SERVICES_GATEWAY_LOCAL_DIR:-.}/configs/nginx.conf
   gateway_templates:
-    file: configs/templates/
+    file: ${SERVICES_GATEWAY_LOCAL_DIR:-.}/configs/templates/

@@ -18,4 +18,4 @@ services:
 
 configs:
   php_ini_conf_d:
-    file: configs/php-ini/conf.d/camagru.php.ini
+    file: ${SERVICES_APP_LOCAL_DIR:-.}/configs/php-ini/conf.d/camagru.php.ini

@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       target: development
     volumes:
-      - ./html:/var/www/html
+      - ${SERVICES_APP_LOCAL_DIR:-.}/html:/var/www/html
     configs:
       - source: msmtprc
         target: /var/www/.msmtprc
@@ -16,6 +16,6 @@ services:
 
 configs:
   msmtprc:
-    file: configs/msmtprc/.msmtprc.dev
+    file: ${SERVICES_APP_LOCAL_DIR:-.}/configs/msmtprc/.msmtprc.dev
   php_fpm_d_camagru_conf:
-    file: configs/php-fpm.d/camagru-dev.conf
+    file: ${SERVICES_APP_LOCAL_DIR:-.}/configs/php-fpm.d/camagru-dev.conf

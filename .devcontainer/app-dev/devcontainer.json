@@ -1,0 +1,48 @@
+{
+    "name": "App-dev",
+    "dockerComposeFile": [
+        "./docker-compose.yml"
+    ],
+    "service": "app-dev",
+    "workspaceFolder": "/workspace",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+            "moby": false
+        },
+        "ghcr.io/devcontainers/features/php:1": {}
+    },
+    "mounts": [
+        {
+            "source": "${localWorkspaceFolder}",
+            "target": "${containerWorkspaceFolder}",
+            "type": "bind"
+        },
+        {
+            "source": "for-exclude-vendor",
+            "target": "${containerWorkspaceFolder}/services/app/html/vendor",
+            "type": "volume"
+        }
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "usernamehw.errorlens",
+                "streetsidesoftware.code-spell-checker",
+                "bmewburn.vscode-intelephense-client",
+                // exclude extensions ref:https://github.com/microsoft/vscode-docs/blob/main/remote-release-notes/v1_85.md#opt-out-of-extensions
+                "-bmewburn.vscode-intelephense-client"
+            ]
+        }
+    },
+    "remoteUser": "root",
+    "remoteEnv": {
+        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+        "RUNTIME_TARGET": "dev-container"
+    },
+    "onCreateCommand": {
+        "install-dependencies": [
+            "bash",
+            "${containerWorkspaceFolder}/.devcontainer/app-dev/install-dependencies.sh"
+        ]
+    }
+}
