@@ -10,7 +10,6 @@ enum EHttpMethod: string
     case Delete = 'DELETE';
 
     public static function from_string($data) : ?self {
-        $s = serialize(...);
         return match(true) {
             strcasecmp("Get", $data) === 0 => self::Get,
             strcasecmp("Post", $data) === 0 => self::Post,
