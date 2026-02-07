@@ -4,4 +4,5 @@ apt-get update
 
 apt-get install -y \
     jq \
-    unzip
+    unzip \
+    entr
