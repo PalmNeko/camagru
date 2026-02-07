@@ -12,13 +12,33 @@ class RequestHandlerRule
         public private(set) Closure $handler,
     ) {}
 
-    public static function get(string $pattern, Closure $handler): self
+    public static function add(EHttpMethod $method, string $pattern, Closure $handler): self
     {
         return new self(
-            method: EHttpMethod::Get,
+            method: $method,
             pattern: $pattern,
             handler: $handler,
         );
+    }
+
+    public static function get(string $pattern, Closure $handler): self
+    {
+        return self::add(method: EHttpMethod::Get, pattern: $pattern, handler: $handler);
+    }
+
+    public static function post(string $pattern, Closure $handler): self
+    {
+        return self::add(method: EHttpMethod::Post, pattern: $pattern, handler: $handler);
+    }
+
+    public static function put(string $pattern, Closure $handler): self
+    {
+        return self::add(method: EHttpMethod::Put, pattern: $pattern, handler: $handler);
+    }
+
+    public static function delete(string $pattern, Closure $handler): self
+    {
+        return self::add(method: EHttpMethod::Delete, pattern: $pattern, handler: $handler);
     }
 
     public function isMatch(EHttpMethod $method, string $path): bool
