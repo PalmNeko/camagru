@@ -1,5 +1,26 @@
 {
     "require": {
         "aws/aws-sdk-php": "^3.369"
+    },
+    "autoload": {
+        "psr-4": {
+            "PalmNeko\\Camagru\\": "private/"
+        },
+        "files": [
+            "private/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
