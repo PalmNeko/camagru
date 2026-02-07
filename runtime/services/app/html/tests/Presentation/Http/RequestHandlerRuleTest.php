@@ -1,24 +1,40 @@
 <?php
 
-use PalmNeko\Camagru\Presentation\Http\EHttpMethod;
-use PalmNeko\Camagru\Presentation\Http\RequestHandlerRule;
+use PalmNeko\Camagru\Presentation\Http\{
+    EHttpMethod,
+    RequestHandlerRule,
+    Request,
+    HandlerResult, IRequestHandler,
+};
+
+class TempHandler implements IRequestHandler {
+    public function __construct(
+        public HandlerResult $handlerResult
+    ) {}
+
+    public function invoke(Request $request) : HandlerResult {
+        return $this->handlerResult;
+    }
+}
 
 describe('RequestHandlerRuleTest', function () {
     describe('::add(get,post,put,delete)', function () {
         test('HappyPath', function () use (& $rule) {
             $pattern = '/\/.*/';
+            $response = new HandlerResult(false, null);
             $rule = RequestHandlerRule::add(
                 EHttpMethod::Get,
                 $pattern,
-                fn() => 'some');
+                new TempHandler($response));
             expect($rule->pattern)->toBe($pattern);
             expect($rule->method)->toBe(EHttpMethod::Get);
-            expect(($rule->handler)())->toBe('some');
+            expect($rule->handler->invoke(new Request))->toBe($response);
         });
     });
     describe('->isMatch', function () {
         $pattern = '/^\/path\/.+\/image/';
-        $rule = RequestHandlerRule::get($pattern, fn() => 'some');
+        $response = new HandlerResult(false, null);
+        $rule = RequestHandlerRule::get($pattern, new TempHandler($response));
         test('HappyPath', function () use (& $rule) {
             expect($rule->isMatch(EHttpMethod::Get, '/path/abc/image'))->toBeTrue();
             expect($rule->isMatch(EHttpMethod::Get, '/path/abc/image/'))->toBeTrue();
