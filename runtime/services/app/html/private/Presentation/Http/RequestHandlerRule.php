@@ -39,8 +39,8 @@ class RequestHandlerRule implements IRequestHandler
         return self::add(method: EHttpMethod::Delete, pattern: $pattern, handler: $handler);
     }
 
-    public function invoke(Request $request): HandlerResult {
-        return $this->handler->invoke($request);
+    public function invoke(): HandlerResult {
+        return $this->handler->invoke();
     }
 
     public function isMatch(EHttpMethod $method, string $path): bool
