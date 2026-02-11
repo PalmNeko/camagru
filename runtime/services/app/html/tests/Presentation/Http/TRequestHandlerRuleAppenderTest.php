@@ -21,34 +21,27 @@ describe('TRequestHandlerRuleAppender', function () {
         $router->appendRule(RequestHandlerRule::get('/\/pattern/', $handler));
         $_SERVER['REQUEST_METHOD'] = $testcase['request_method'];
         $_SERVER['REQUEST_URI'] = $testcase['request_uri'];
-        http_response_code(200);
-        $router->invoke();
-        expect(http_response_code())->toBe($testcase['response_code']);
+        $result = $router->invoke();
+        expect($result->isNext())->toBe($testcase['isNext']);
     })
     ->with([
         [[
             'testcase' => 'HappyPath',
             'request_method' => 'GET',
             'request_uri' => '/pattern',
-            'response_code' => 200,
+            'isNext' => false,
         ]],
         [[
             'testcase' => 'Invalid REQUEST_METHOD:400',
             'request_method' => 'NoMethod',
             'request_uri' => '/pattern',
-            'response_code' => 400,
+            'isNext' => true,
         ]],
         [[
             'testcase' => 'Not Supported REQUEST_METHOD:400',
             'request_method' => 'TRACE',
             'request_uri' => '/pattern',
-            'response_code' => 400,
-        ]],
-        [[
-            'testcase' => 'Not Found:404',
-            'request_method' => 'GET',
-            'request_uri' => '/notfound',
-            'response_code' => 404,
+            'isNext' => true,
         ]],
     ])
     ;
