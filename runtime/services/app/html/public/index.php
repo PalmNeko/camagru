@@ -1,7 +1,13 @@
-
 <?php
 
-http_response_code(404);
+declare(strict_types=1);
 
-phpinfo();
-?>
+require __DIR__ . '/../private/environments.php';
+
+use PalmNeko\Camagru\App;
+
+$app = new App();
+
+$result = $app->invoke();
+if ($result->isNext())
+    phpinfo();
