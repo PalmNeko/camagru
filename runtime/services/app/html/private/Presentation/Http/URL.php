@@ -29,14 +29,16 @@ class URL
 
     public string $port {
         set(string $value) {
-            if (ctype_digit($value))
+            if ($value == '')
+                $this->port = '';
+            elseif (ctype_digit($value))
                 $this->port = strval(intval($value));
         }
     }
 
     public string $pathname {
         set(string $value) {
-            if (strlen($value) == 0 || $value[0] !== '/')
+            if ($value === '' || $value[0] !== '/')
                 $value = "/$value";
             $this->pathname = $value;
         }
@@ -71,11 +73,11 @@ class URL
     }
 
     public function __toString(): string {
+        $auth = $this->username . ($this->password ? ":$this->password" : '');
         return
             $this->protocol .
             '//' .
-            $this->username .
-            $this->password .
+            ($auth ? "$auth@" : '') .
             $this->hostname .
             $this->port .
             $this->pathname .
