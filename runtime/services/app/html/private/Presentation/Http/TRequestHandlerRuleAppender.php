@@ -20,15 +20,13 @@ trait TRequestHandlerRuleAppender
         $method = EHttpMethod::from_string($_SERVER['REQUEST_METHOD']);
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         if ($method === null || $path === false || $path === NULL) {
-            Error400Page::set();
-            return new HandlerResult(false);
+            return new HandlerResult();
         }
         foreach ($this->rules as $rule) {
             if ($rule->isMatch($method, $path)) {
                 return $rule->invoke();
             }
         }
-        Error404Page::set();
-        return new HandlerResult(false);
+        return new HandlerResult();
     }
 }
