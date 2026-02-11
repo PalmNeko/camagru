@@ -19,7 +19,6 @@ describe('TRequestHandlerRuleAppender', function () {
         $response = new HandlerResult(false);
         $handler = new TempHandler($response);
         $router->appendRule(RequestHandlerRule::get('/\/pattern/', $handler));
-        var_dump($testcase);
         $_SERVER['REQUEST_METHOD'] = $testcase['request_method'];
         $_SERVER['REQUEST_URI'] = $testcase['request_uri'];
         http_response_code(200);
