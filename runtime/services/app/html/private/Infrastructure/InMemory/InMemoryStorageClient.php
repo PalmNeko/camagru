@@ -1,6 +1,6 @@
 <?php
 
-namespace PalmNeko\Camagru\Infrastructure\Repository\InMemory;
+namespace PalmNeko\Camagru\Infrastructure\InMemory;
 
 class InMemoryStorageClient
 {

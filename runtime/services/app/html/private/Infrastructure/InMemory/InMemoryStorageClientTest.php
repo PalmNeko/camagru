@@ -1,6 +1,6 @@
 <?php
 
-use PalmNeko\Camagru\Infrastructure\Repository\InMemory\InMemoryStorageClient;
+use PalmNeko\Camagru\Infrastructure\InMemory\InMemoryStorageClient;
 
 describe('InMemoryStorageClient', function () {
     test('->append()', function () {

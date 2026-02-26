@@ -1,10 +1,11 @@
 <?php
 
-namespace PalmNeko\Camagru\Infrastructure\Repository\InMemory;
+namespace PalmNeko\Camagru\Infrastructure\InMemory\Repository;
 
 use PalmNeko\Camagru\Domain\Repository\{
     IImageRepository
 };
+use PalmNeko\Camagru\Infrastructure\InMemory\InMemoryStorageClient;
 
 class InMemoryImageRepository implements IImageRepository
 {

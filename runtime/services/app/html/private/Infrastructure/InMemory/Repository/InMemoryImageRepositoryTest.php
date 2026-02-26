@@ -3,8 +3,8 @@
 use PalmNeko\Camagru\Domain\Aggregation\ImageAggregation;
 use PalmNeko\Camagru\Domain\Entity\ImageEntity;
 use PalmNeko\Camagru\Domain\ValueObject\ImageId;
-use PalmNeko\Camagru\Infrastructure\Repository\InMemory\InMemoryImageRepository;
-use PalmNeko\Camagru\Infrastructure\Repository\InMemory\InMemoryStorageClient;
+use PalmNeko\Camagru\Infrastructure\InMemory\Repository\InMemoryImageRepository;
+use PalmNeko\Camagru\Infrastructure\InMemory\InMemoryStorageClient;
 
 
 describe('InMemoryStorageClient', function () {
