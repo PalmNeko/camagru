@@ -9,6 +9,8 @@ services:
     environment:
       MARIADB_DATABASE: ${MARIADB_DATABASE:-camagru}
       MARIADB_USER: ${MARIADB_USER:-camagru}
+    volumes:
+      - ${SERVICES_MARIADB_LOCAL_DIR:-.}/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       start_period: 10s

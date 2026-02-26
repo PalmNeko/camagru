@@ -4,5 +4,6 @@ services:
     environment:
       MARIADB_PASSWORD: ${MARIADB_PASSWORD:-password}
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-password}
+      LOAD_DATA: "true"
     volumes:
       - ${SERVICES_MARIADB_LOCAL_DIR:-.}/datadir:/var/lib/mysql
