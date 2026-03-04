@@ -19,7 +19,7 @@
         },
         {
             "source": "for-exclude-vendor",
-            "target": "${containerWorkspaceFolder}/services/app/html/vendor",
+            "target": "${localWorkspaceFolder}/services/app/html/vendor",
             "type": "volume"
         }
     ],
