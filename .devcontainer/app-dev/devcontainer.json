@@ -44,5 +44,8 @@
             "bash",
             "${containerWorkspaceFolder}/.devcontainer/app-dev/install-dependencies.sh"
         ]
+    },
+    "postStartCommand": {
+        "setup-git": "git config --global --add safe.directory ${containerWorkspaceFolder}"
     }
 }

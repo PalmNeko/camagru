@@ -6,4 +6,5 @@ apt-get install -y \
     jq \
     unzip \
     less \
-    entr
+    entr \
+    openssh-client
