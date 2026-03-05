@@ -6,7 +6,7 @@
     "service": "app-dev",
     "workspaceFolder": "/workspace",
     "features": {
-        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "moby": false
         },
         "ghcr.io/devcontainers/features/php:1": {}
