@@ -4,3 +4,5 @@ name: camagru
 include:
   - path:
       - docker-compose.${RUNTIME_TARGET:-dev}.yml
+    env_file:
+      - .public.env

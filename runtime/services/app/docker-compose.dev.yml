@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       target: development
     volumes:
-      - ${SERVICES_APP_LOCAL_DIR:-.}/html:/var/www/html
+      - ${APP_SOURCE_PATH:?error}:/var/www/html
     configs:
       - source: msmtprc
         target: /var/www/.msmtprc
