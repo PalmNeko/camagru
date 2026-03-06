@@ -1,0 +1,6 @@
+{
+    "unwantedRecommendations": [
+        "devsense.intelli-php-vscode",
+        "zobo.php-intellisense"
+    ]
+}

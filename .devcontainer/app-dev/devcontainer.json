@@ -29,8 +29,14 @@
                 "usernamehw.errorlens",
                 "streetsidesoftware.code-spell-checker",
                 "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "DEVSENSE.composer-php-vscode",
+                "shashraf.vscode-pestphp",
+                "renandelmonico.vscode-php-test-explorer",
                 // exclude extensions ref:https://github.com/microsoft/vscode-docs/blob/main/remote-release-notes/v1_85.md#opt-out-of-extensions
-                "-bmewburn.vscode-intelephense-client"
+                "-DEVSENSE.phptools-vscode",
+                "-DEVSENSE.intelli-php-vscode",
+                "-xdebug.php-pack"
             ]
         }
     },
