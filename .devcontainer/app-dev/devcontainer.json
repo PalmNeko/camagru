@@ -28,14 +28,14 @@
             "extensions": [
                 "usernamehw.errorlens",
                 "streetsidesoftware.code-spell-checker",
-                "bmewburn.vscode-intelephense-client",
-                "xdebug.php-debug",
-                "DEVSENSE.composer-php-vscode",
                 "shashraf.vscode-pestphp",
                 "renandelmonico.vscode-php-test-explorer",
-                // exclude extensions ref:https://github.com/microsoft/vscode-docs/blob/main/remote-release-notes/v1_85.md#opt-out-of-extensions
-                "-DEVSENSE.phptools-vscode",
-                "-DEVSENSE.intelli-php-vscode",
+                "devsense.profiler-php-vscode",
+                "devsense.composer-php-vscode",
+                "xdebug.php-debug",
+                // // exclude extensions ref:https://github.com/microsoft/vscode-docs/blob/main/remote-release-notes/v1_85.md#opt-out-of-extensions
+                "-devsense.phptools-vscode",
+                "-zobo.php-intellisense",
                 "-xdebug.php-pack"
             ]
         }
