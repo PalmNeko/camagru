@@ -10,6 +10,10 @@ class UUID implements JsonSerializable {
         public private(set) string $value
     ) {}
 
+    public function __toString() : string {
+        return $this->value;
+    }
+
     public function jsonSerialize() : string {
         return $this->value;
     }

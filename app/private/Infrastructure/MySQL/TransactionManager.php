@@ -1,6 +1,6 @@
 <?php
 
-namespace PalmNeko\Camagru\Infrastructure\Repository\MySQL;
+namespace PalmNeko\Camagru\Infrastructure\MySQL;
 
 use Exception;
 use mysqli;

@@ -7,3 +7,5 @@ services:
       LOAD_DATA: "true"
     volumes:
       - ${SERVICES_MARIADB_LOCAL_DIR:-.}/datadir:/var/lib/mysql
+    ports:
+      - "3306:3306"

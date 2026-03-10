@@ -15,7 +15,8 @@
             "Tests\\": [
                 "tests/",
                 "private/"
-            ]
+            ],
+            "PalmNeko\\Camagru\\Client\\": "clients/"
         }
     },
     "require-dev": {
