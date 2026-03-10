@@ -8,8 +8,7 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "moby": false
-        },
-        "ghcr.io/devcontainers/features/php:1": {}
+        }
     },
     "mounts": [
         {
@@ -19,24 +18,24 @@
         },
         {
             "source": "for-exclude-vendor",
-            "target": "${localWorkspaceFolder}/runtime/services/app/html/vendor",
+            "target": "${localWorkspaceFolder}/app/vendor",
             "type": "volume"
         }
     ],
     "customizations": {
         "vscode": {
             "extensions": [
-                "usernamehw.errorlens",
-                "streetsidesoftware.code-spell-checker",
-                "shashraf.vscode-pestphp",
-                "renandelmonico.vscode-php-test-explorer",
-                "devsense.profiler-php-vscode",
+                "bmewburn.vscode-intelephense-client",
                 "devsense.composer-php-vscode",
-                "xdebug.php-debug",
-                // // exclude extensions ref:https://github.com/microsoft/vscode-docs/blob/main/remote-release-notes/v1_85.md#opt-out-of-extensions
-                "-devsense.phptools-vscode",
-                "-zobo.php-intellisense",
-                "-xdebug.php-pack"
+                "devsense.profiler-php-vscode",
+                "hbenl.vscode-test-explorer",
+                "ms-azuretools.vscode-containers",
+                "ms-vscode.test-adapter-converter",
+                "renandelmonico.vscode-php-test-explorer",
+                "shashraf.vscode-pestphp",
+                "streetsidesoftware.code-spell-checker",
+                "usernamehw.errorlens",
+                "xdebug.php-debug"
             ]
         }
     },

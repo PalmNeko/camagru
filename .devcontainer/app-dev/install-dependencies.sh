@@ -7,4 +7,5 @@ apt-get install -y \
     unzip \
     less \
     entr \
-    openssh-client
+    openssh-client \
+    mariadb-client
