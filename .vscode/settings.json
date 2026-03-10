@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Camagru"
-    ]
+    ],
+    "editor.formatOnSave": true
 }
