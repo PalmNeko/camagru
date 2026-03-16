@@ -2,7 +2,7 @@ server {
     listen       80;
     server_name  localhost;
 
-    location / {
+    location /api/ {
         try_files $uri /index.php?$args;
     }
 
@@ -12,6 +12,15 @@ server {
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
         root   /usr/share/nginx/html;
+    }
+
+    location / {
+        root /usr/share/nginx/assets/html;
+        try_files $uri /gallery.html;
+    }
+
+    location ~ \.(js|css)$ {
+        root   /usr/share/nginx/assets;
     }
 
     # camagru background main application

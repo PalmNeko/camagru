@@ -8,6 +8,8 @@ services:
     environment:
       MEDIA_STORAGE_HOSTNAME: ${MEDIA_STORAGE_HOSTNAME:-media_storage}
       APP_HOSTNAME: ${APP_HOSTNAME:-app}
+    volumes:
+      - ${ASSETS_PATH}:/usr/share/nginx/assets
     configs:
       - source: gateway_conf
         target: /etc/nginx/nginx.conf
