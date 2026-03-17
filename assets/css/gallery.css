@@ -1,0 +1,49 @@
+body {
+    background-color: aquamarine;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template:
+        "head head head" auto
+        "nav main main" auto
+        "nav main main" auto
+        "foot foot foot" auto;
+}
+
+.nav-area {
+    grid-area: nav;
+}
+
+.head-area {
+    background-color: whitesmoke;
+    grid-area: head;
+}
+
+.main-area {
+    grid-area: main;
+}
+
+.foot-area {
+    grid-area: foot;
+}
+
+.p-1 {
+    padding: 1px;
+}
+
+.p-2 {
+    padding: 3px;
+}
+
+.p-3 {
+    padding: 7px;
+}
+
+.p-4 {
+    padding: 13px;
+}
+
+.p-5 {
+    padding: 26px;
+}

@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Camagru</title>
     <script src="/js/gallery.js" type="module"></script>
+    <link href="/css/gallery.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="grid-layout">
+    <header class="head-area">Camagru</header>
+    <nav class="nav-area">
+        <div><span>≡</span></div>
+        <div class="p-5">
+            <li><a href="gallery">ギャラリー</a></li>
+            <li><a href="post">投稿</a></li>
+            <li><a href="setting">設定</a></li>
+        </div>
+    </nav>
 
+    <main class="main-area" id="app">
+        これはメインコンテンツです。
+    </main>
+
+    <footer class="footer-area">
+        これはフッターです。
+    </footer>
 </body>
 
 </html>
